@@ -1,7 +1,14 @@
 body {
-
+	background-color: #bed4f7;
 }
 
 #content {
      margin-left: 20px;
 }
+
+.home {
+	background-image: url("/static/spongebob.jpg");
+	width: 100%;
+	height: 100%;
+}
+

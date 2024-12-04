@@ -7,5 +7,5 @@ wheel
 gunicorn
 Flask-OAuthlib
 OAuth
-MongoDB
+pymongo
 
