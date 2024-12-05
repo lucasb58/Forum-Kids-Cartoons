@@ -20,7 +20,6 @@ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' #Remove once done debugging
 app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
 oauth = OAuth(app)
 oauth.init_app(app) #initialize the app to be able to make requests for user information
-
 #Set up GitHub as OAuth provider
 github = oauth.remote_app(
     'github',
