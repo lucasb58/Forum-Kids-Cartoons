@@ -1,3 +1,4 @@
+import pymongo
 from flask import Flask, redirect, url_for, session, request, jsonify
 from flask_oauthlib.client import OAuth
 #from flask_oauthlib.contrib.apps import github #import to make requests to GitHub's OAuth
@@ -87,6 +88,7 @@ def authorized():
             session.clear()
             print(inst)
             message='Unable to login, please try again.  '
+    print(session)
     return render_template('message.html', message=message)
 
 
@@ -96,6 +98,7 @@ def renderPage1():
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
     else:
         user_data_pprint = '';
+    print(user_data_pprint)
     return render_template('page1.html',dump_user_data=user_data_pprint)
 
 @app.route('/page2')
