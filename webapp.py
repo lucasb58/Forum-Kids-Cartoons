@@ -114,6 +114,15 @@ def render_google_verification():
 @github.tokengetter
 def get_github_oauth_token():
     return session['github_token']
+    
+"""def check_to_post():
+if 'user_data' in session:
+	
+elif 'user_date' ='':
+
+    return render_template(return render_template('home.html')"""
+    
+    
 
 
 if __name__ == '__main__':

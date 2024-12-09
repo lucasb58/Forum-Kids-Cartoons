@@ -9,7 +9,12 @@ body {
      margin-left: 20px;
 }
 
-.home {
-	
+.button {
+background-color: rgb(101, 184, 247);
+margin: 10px;
+padding: 10px;
+position: absolute;
+bottom: 8px;
+right: 16px;
 }
 
