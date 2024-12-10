@@ -90,13 +90,13 @@ def authorized():
     return render_template('message.html', message=message)
 
 
-@app.route('/page1')
+@app.route('/post')
 def renderPage1():
     if 'user_data' in session:
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
     else:
         user_data_pprint = '';
-    return render_template('page1.html',dump_user_data=user_data_pprint)
+    return render_template('post.html',dump_user_data=user_data_pprint)
 
 @app.route('/page2')
 def renderPage2():
@@ -115,12 +115,7 @@ def render_google_verification():
 def get_github_oauth_token():
     return session['github_token']
     
-"""def check_to_post():
-if 'user_data' in session:
-	
-elif 'user_date' ='':
 
-    return render_template(return render_template('home.html')"""
     
     
 
