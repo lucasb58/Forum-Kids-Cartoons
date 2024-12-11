@@ -8,7 +8,7 @@
       </li>
 	<li class="nav-item">
         {% if logged_in %}
-			class="navbar-text">Github userid: {{ session['user_data']['login']}}
+			
 				{% endif %}
 				{% if logged_in %}
 			 		<a {% if active_page == "post" %} class="nav-link active" {% else %} class="nav-link"{% endif %} href="/post">Post</a>
