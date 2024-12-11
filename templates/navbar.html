@@ -6,26 +6,24 @@
       <li class="nav-item">
         <a {% if active_page == "home" %} class="nav-link active" {% else %} class="nav-link"{% endif %} href="/">Home</a>
       </li>
-	
 	<li class="nav-item">
         {% if logged_in %}
 			class="navbar-text">Github userid: {{ session['user_data']['login']}}
 				{% endif %}
 				{% if logged_in %}
-			 <a {% if active_page == "post" %} class="nav-link active" {% else %} class="nav-link"{% endif %} href="/post">Post</a>
+			 		<a {% if active_page == "post" %} class="nav-link active" {% else %} class="nav-link"{% endif %} href="/post">Post</a>
 				{% else %}
-			<a href="/login">Login</a>
+					 <a {% if active_page == "logintopost" %} class="nav-link active" {% else %} class="nav-link"{% endif %} href="/logintopost">Post</a>
 				{% endif %}  
 	</li>  
 	
 	<li class="nav-item">
       	{% if logged_in %}
-			class="navbar-text">Github userid: {{ session['user_data']['login']}}
 				{% endif %}
 				{% if logged_in %}
-			<a href="/logout">Post</a>
+			<a href="/logout">Logout</a>
 				{% else %}
-			<a href="/login">Log in to Post</a>
+			<a href="/login">Login</a>
 				{% endif %}
 	</li>
     </ul>

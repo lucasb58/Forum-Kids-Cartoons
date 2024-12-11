@@ -91,20 +91,23 @@ def authorized():
 
 
 @app.route('/post')
-def renderPage1():
+def renderPost():
     if 'user_data' in session:
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
     else:
         user_data_pprint = '';
+    if "writing" not in session:   
+        session["writng"]=request.form['writing']
+    print(writing)
     return render_template('post.html',dump_user_data=user_data_pprint)
 
-@app.route('/page2')
-def renderPage2():
+@app.route('/logintopost')
+def renderLogintopost():
     if 'user_data' in session:
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
     else:
         user_data_pprint = '';
-    return render_template('page2.html', dump_user_data=user_data_pprint)
+    return render_template('logintopost.html', dump_user_data=user_data_pprint)
 
 @app.route('/googleb4c3aeedcc2dd103.html')
 def render_google_verification():
@@ -115,8 +118,14 @@ def render_google_verification():
 def get_github_oauth_token():
     return session['github_token']
     
+"""def get_posts():
+    if "writing" not in session:   
+        session["writng"]=request.form['writing']
+    if "lastName" not in session:   
+        session["lastName"]=request.form['lastName']   
+  	print(writing)
+    return render_template('page2.html')"""
 
-    
     
 
 
