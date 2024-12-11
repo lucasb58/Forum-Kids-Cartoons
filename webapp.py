@@ -97,7 +97,10 @@ def renderPost():
     else:
         user_data_pprint = '';
     if "writing" in request.form:   
-        session["writng"]=request.form['writing']
+        session["writing"]=request.form['writing']
+        "author" =
+        doc = {"author":_id,Text:request.form['writing]}
+        collection.insert_one(doc)
         print(request.form['writing'])
         return redirect(url_for('home'))
     return render_template('post.html',dump_user_data=user_data_pprint, )
