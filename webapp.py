@@ -14,7 +14,7 @@ import os
 
 app = Flask(__name__)
 
-app.debug = False #Change this to False for production
+app.debug = True #Change this to False for production
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1' #Remove once done debugging
 
 app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
@@ -90,16 +90,17 @@ def authorized():
     return render_template('message.html', message=message)
 
 
-@app.route('/post')
+@app.route('/post', methods=['GET','POST'])
 def renderPost():
     if 'user_data' in session:
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
     else:
         user_data_pprint = '';
-    if "writing" not in session:   
+    if "writing" in request.form:   
         session["writng"]=request.form['writing']
-    print(writing)
-    return render_template('post.html',dump_user_data=user_data_pprint)
+        print(request.form['writing'])
+        return redirect(url_for('home'))
+    return render_template('post.html',dump_user_data=user_data_pprint, )
 
 @app.route('/logintopost')
 def renderLogintopost():
