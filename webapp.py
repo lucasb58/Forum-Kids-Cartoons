@@ -98,8 +98,8 @@ def renderPost():
         user_data_pprint = '';
     if "writing" in request.form:   
         session["writing"]=request.form['writing']
-        "author" =
-        doc = {"author":_id,Text:request.form['writing]}
+        "author" = github_user_id
+        doc = {"author":_id,Text:request.form['writing']}
         collection.insert_one(doc)
         print(request.form['writing'])
         return redirect(url_for('home'))
@@ -122,13 +122,7 @@ def render_google_verification():
 def get_github_oauth_token():
     return session['github_token']
     
-"""def get_posts():
-    if "writing" not in session:   
-        session["writng"]=request.form['writing']
-    if "lastName" not in session:   
-        session["lastName"]=request.form['lastName']   
-  	print(writing)
-    return render_template('page2.html')"""
+
 
     
 
