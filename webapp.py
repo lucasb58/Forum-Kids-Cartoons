@@ -98,8 +98,8 @@ def renderPost():
         user_data_pprint = '';
     if "writing" in request.form:   
         session["writing"]=request.form['writing']
-        "author" = github_user_id
-        doc = {"author":_id,Text:request.form['writing']}
+        author =session['user_data']['login']
+        doc = {"Author":author,'Text':request.form['writing']}
         collection.insert_one(doc)
         print(request.form['writing'])
         return redirect(url_for('home'))
@@ -110,7 +110,7 @@ def renderLogintopost():
     if 'user_data' in session:
         user_data_pprint = pprint.pformat(session['user_data'])#format the user data nicely
     else:
-        user_data_pprint = '';
+          user_data_pprint = '';
     return render_template('logintopost.html', dump_user_data=user_data_pprint)
 
 @app.route('/googleb4c3aeedcc2dd103.html')
